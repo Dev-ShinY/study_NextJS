@@ -1,10 +1,5 @@
-import {
-  JSXElementConstructor,
-  Key,
-  ReactElement,
-  ReactFragment,
-  ReactPortal,
-} from "react";
+import Link from "next/link";
+import { Key } from "react";
 import SEO from "../components/SEO";
 
 export default function Home({ results }: any) {
@@ -16,23 +11,20 @@ export default function Home({ results }: any) {
           (movie: {
             id: Key | null | undefined;
             poster_path: string;
-            original_title:
-              | string
-              | number
-              | boolean
-              | ReactElement<any, string | JSXElementConstructor<any>>
-              | ReactFragment
-              | ReactPortal
-              | null
-              | undefined;
+            original_title: string;
           }) => (
-            <div className="movie" key={movie.id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt=""
-              />
-              <h4>{movie.original_title}</h4>
-            </div>
+            <Link
+              key={movie.id}
+              href={`/movies/${movie.original_title}/${movie.id}`}
+            >
+              <div className="movie">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.poster_path}
+                />
+                <h4>{movie.original_title}</h4>
+              </div>
+            </Link>
           )
         )}
         <style jsx>{`
