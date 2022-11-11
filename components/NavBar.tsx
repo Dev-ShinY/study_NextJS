@@ -10,14 +10,13 @@ export default function NavBar() {
       <img src="/vercel.svg" alt="vercel" />
 
       <div>
-        <Link href="/" className={router.pathname === "/" ? "active" : ""}>
-          Home
+        <Link href="/">
+          <span className={router.pathname === "/" ? "active" : ""}>Home</span>
         </Link>
-        <Link
-          href="/about"
-          className={router.pathname === "/about" ? "active" : ""}
-        >
-          About
+        <Link href="/about">
+          <span className={router.pathname === "/about" ? "active" : ""}>
+            About
+          </span>
         </Link>
       </div>
       <style jsx>{`
@@ -35,7 +34,7 @@ export default function NavBar() {
           max-width: 100px;
           margin-bottom: 5px;
         }
-        nav a {
+        nav span {
           font-weight: 600;
           font-size: 18px;
         }
