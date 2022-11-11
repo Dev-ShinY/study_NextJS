@@ -1,6 +1,5 @@
-import NavBar from "../components/NavBar";
-import Layout from '../components/Layout';
-
+import Layout from "../components/Layout";
+import "../styles/globals.css";
 interface Iprops {
   Component: any;
   pageProps: any;
